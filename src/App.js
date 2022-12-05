@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import second from "./components/CandidateForm";
+import CandidateForm from "./components/CandidateForm";
+import CandidateList from "./components/CandidateList";
+import { BrowserRouter, Routes, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="container">
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element={<CandidateForm />}></Route>
+            <Route exact path="/update/:Id" element={<CandidateForm />}></Route>
+            <Route exact path="/list" element={<CandidateList />}></Route>
+            {/* <Route index element={<Home />} />
+            <Route path="blogs" element={<Blogs />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="*" element={<NoPage />} /> */}
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </>
   );
 }
 
